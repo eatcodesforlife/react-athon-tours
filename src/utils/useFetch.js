@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 
 
 export const useFetch = (url) => {
@@ -6,7 +6,7 @@ export const useFetch = (url) => {
     const [ isLoading, setIsLoading ] = useState(true)
     const [ products, setProducts ] = useState([])
 
-    const fetchData = async () => {
+    const fetchData = useCallback(async () => {
 
         try {
             const res = await fetch(url)
@@ -20,11 +20,11 @@ export const useFetch = (url) => {
             console.log(err)
         }
 
-    }
+    }, [url])
 
     useEffect(() => {
         fetchData()
-    }, [url])
+    }, [url, fetchData])
 
     return { isLoading, products }
 }
