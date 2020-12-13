@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const Tour = ({id, name, info, image, price, removeTour }) => {
 
@@ -6,7 +8,11 @@ const Tour = ({id, name, info, image, price, removeTour }) => {
 
     return (
         <article className='single-tour'>
-            <img src={image} alt={name}/>
+            <LazyLoadImage
+                effect='blur' 
+                src={image}
+                alt={name}
+            />
             <footer>
                 <div className="tour-info">
                     <h4>{name}</h4>
