@@ -3,7 +3,7 @@ import Tours from './components/Tours'
 import { useFetch } from './utils/useFetch'
 import Loading from './components/Loading'
 
-const url = 'https://course-api.com/react-tours-project'
+const url = 'https://my-react-projects-fake-api.herokuapp.com/tours'
 
 function App() {
 
